@@ -23,11 +23,8 @@
 ## purpose:
 
 - find similar commits
-
 - input: bunchs of commits(include folk)
-
 - output:  clusters of similar commits
-
 - now focus on single repository
 
 ### Environment:

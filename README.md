@@ -27,3 +27,9 @@ find similar commits
 input: bunchs of commits(include folk)
 output:  clusters of similar commits
 now focus on single repository
+
+### Environment:
+`conda create --name  sspj`
+`conda activate sspj`
+`pip install -r requirements.txt`
+`conda install -c pytorch faiss-gpu`

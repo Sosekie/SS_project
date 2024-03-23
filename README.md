@@ -6,30 +6,32 @@
 
 向量比较之后进行细节比较（选做）
 
-Dataset: 
+## Resource:
 
-facebook-faiss
-https://github.com/facebookresearch/faiss
+- Dataset: facebook-faiss: https://github.com/facebookresearch/faiss
 
-how to use:
-https://www.pinecone.io/learn/series/faiss/faiss-tutorial/
+- how to use: https://www.pinecone.io/learn/series/faiss/faiss-tutorial/
 
-任务介绍：
-1. document retrial
+- Facebook tutorial for LSH: https://www.pinecone.io/learn/series/faiss/
 
-学Rust？
+- https://github.com/AlexanderSchultheiss/cherry-harvest/tree/main
 
-这周干什么？
-看faiss-tutorial
+- https://www.atlassian.com/git/tutorials/cherry-pick
 
-目标？
-find similar commits
-input: bunchs of commits(include folk)
-output:  clusters of similar commits
-now focus on single repository
+- https://git-scm.com/docs/git-cherry-pick
+
+## purpose:
+
+- find similar commits
+
+- input: bunchs of commits(include folk)
+
+- output:  clusters of similar commits
+
+- now focus on single repository
 
 ### Environment:
-`conda create --name  sspj`
-`conda activate sspj`
-`pip install -r requirements.txt`
-`conda install -c pytorch faiss-gpu`
+- conda create --name  sspj
+- conda activate sspj
+- pip install -r requirements.txt
+- conda install -c pytorch faiss-gpu

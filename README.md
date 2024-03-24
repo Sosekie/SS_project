@@ -32,3 +32,5 @@
 - conda activate sspj
 - pip install -r requirements.txt
 - conda install -c pytorch faiss-gpu
+
+

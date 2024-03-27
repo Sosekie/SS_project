@@ -1,11 +1,5 @@
 # SS_project
 
-问题: "Brute force does not scale" 这意味着，使用暴力搜索（也就是无差别、穷尽所有可能性的搜索方法）来找到某种相似性（这里可能是指代码差异，或者'diff'）不是一个可扩展的方法。在大型数据集上，暴力搜索效率很低，需要非常长的时间，因为随着数据量的增加，所需的计算量呈指数增长。
-
-解决方案: "Approximate nearest neighbor search (k-ANN)" 这是提出的解决方案。k-最近邻（k-NN）是一种用于分类和回归的非参数统计方法。在搜索问题中，这个算法通常被用来查找距离最近的几个邻居。然而，当数据集非常大时，即使是传统的k-NN也会变得效率低下。为了解决这个问题，人们使用了近似最近邻搜索（ANN），这是一个旨在加快最近邻搜索的算法，它牺牲了一定的准确性来换取速度。所以，近似最近邻搜索能够比暴力方法更快地在大型数据集中找到“足够近”的邻居。
-
-向量比较之后进行细节比较（选做）
-
 ## Resource:
 
 - Dataset: facebook-faiss: https://github.com/facebookresearch/faiss
@@ -27,10 +21,44 @@
 - output:  clusters of similar commits
 - now focus on single repository
 
-### Environment:
-- conda create --name  sspj
-- conda activate sspj
+## Environment:
+- conda create --name  ss
+- conda activate ss
 - pip install -r requirements.txt
 - conda install -c pytorch faiss-gpu
 
+## Question:
 
+1. how k-Shingling deal with long content?
+
+2. for reduce dimension, why not change fc layer's output dimension?
+
+how:
+
+Flat Index：当数据集可以放入RAM并且需要精确搜索时使用。
+PQ Index：当内存是考虑因素且数据集较大时，通过Product Quantization压缩向量以减少内存占用。
+Flat Index with IVF：对于大型数据集，使用Inverted File System (IVF)可以提高搜索速度。
+PQ Index with IVF：同时考虑内存和搜索效率时的选择，尤其是在数据集很大时。
+Annoy Index：当向量维度小于100时的选择。
+HNSWx Index：当向量维度大于等于100且需要更高效的索引时使用。
+
+Flat Index: Used when the dataset can fit in RAM and an exact search is required.
+PQ Index: When memory is a consideration and the dataset is large, compress the vectors with Product Quantization to reduce the memory footprint.
+Flat Index with IVF: For large datasets, use Inverted File System (IVF) to improve search speed.
+PQ Index with IVF: The choice when considering both memory and search efficiency, especially when the dataset is large.
+Annoy Index: the choice when the vector dimension is less than 100.
+HNSWx Index: used when the vector dimension is greater than or equal to 100 and a more efficient index is needed.
+
+input and output is fixed
+
+input normalizition
+
+url->commits->diff->similar diff->map commits_brunch_repository
+
+try dr and know, evaluation, ablation of different method
+
+gitlib issues, list of repositories
+
+use cherry harvest, cargo run --release, to test
+
+can use python, push changes to gitlab
